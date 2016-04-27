@@ -18,7 +18,7 @@ namespace ConfReload.Tests
         public void Should_read_configuration()
         {
             // given
-            _configuration = Configuration.Create("resources/example.config");
+            _configuration = Configuration.Parse("resources/example.config");
             // when
             var url = _configuration.GetValue("url");
             // then
@@ -30,7 +30,7 @@ namespace ConfReload.Tests
         {
             // given
             var path = "resources/update.config";
-            _configuration = Configuration.Create(path);
+            _configuration = Configuration.Parse(path);
             // when
             WriteFileContent(path, "<conf><url>http://new</url></conf>");
             // then
@@ -43,7 +43,7 @@ namespace ConfReload.Tests
         {
             // given
             var path = "resources/update2bad.config";
-            _configuration = Configuration.Create(path);
+            _configuration = Configuration.Parse(path);
             // when
             WriteFileContent(path, "<conf><url>http://new</url></a></conf>");
             // then

@@ -16,7 +16,7 @@ namespace ConfReload
         private readonly Object _syncRoot = new object();
         private readonly string _filePath;
 
-        public static Configuration Create(string filePath)
+        public static Configuration Parse(string filePath)
         {
             var fileInfo = new FileInfo(filePath);
             if (!fileInfo.Exists)
